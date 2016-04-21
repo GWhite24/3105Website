@@ -1,52 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Future Value Calculator</title>
-    <link rel="stylesheet" type="text/css" href="main.css"/>
-</head>
+<?php
+$title = "Home";
+$content = '
+        <img src="Images/banner.jpg" class="imgLeft" />
+        <h3>Spoiled Bananas</h3>
+        <p>
 
-<body>
-    <div id="content">
-    <h1>Future Value Calculator</h1>
-    <?php if (!empty($error_message)) { ?>
-        <p class="error"><?php echo $error_message; ?></p>
-    <?php } // end if ?>
-    <form action="display_results.php" method="post">
-        <div id="data">
-			<label>Investment Amount:</label>
-			<select name="investment">
-				<?php
-				for($i = 10000; $i <= 50000; $i += 5000){
-					echo("<option value = $i>$i</option>");
-					
-				}
-				?>
-			</select>
-			<br />
+        </p>
 
-			<label>Yearly Interest Rate:</label>
-			<select name="interest_rate">
-				<?php
-				for($i = 4; $i <= 12; $i += .5){
-					echo("<option value = $i>$i</option>");
-					
-				}
-				?>
-			</select>
-			<br />
+        <img src="Images/b2.jpg" class="imgRight" />
+        <h3>Purpose</h3>
+        <p>
+            A web application that will allow users to look and search through a database of
 
-			<label>Number of Years:</label>
-			<input type="text" name="years"  value=""  class="textbox"/>
-			<br />
-        
-		</div>
-        
-        <div id="buttons">
-        <label>&nbsp;</label>
-        <input type="submit" value="Calculate"/><br />
-        </div>
-    </form>
-    </div>
-</body>
-</html>
+movie, then the user will be able to read reviews on the movie. The readers can read reviews, also view 
+
+trailers for the movie, and see comments about the movie left by other viewers.  The user will also be 
+
+able to create an account where they will be able to log in to make their own comments and reviews. 
+
+Also when logged in they will be able to add the movie to a shopping cart for checkout. This web 
+
+application will be great for movie enthusiasts to find new movies they may want to watch, and for 
+
+movie buffs to help others in the search for great movies
+         </p>
+
+         <img src="Images/b3.jpg" class="imgLeft" />
+         <h3>Welcome!</h3>
+         <p>
+            Spoiled Bananas is a website containing information about movies: information, news, reviews and ratings, pictures, etc.
+         </p>';
+include 'Template.php';
+?>
