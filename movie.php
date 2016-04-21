@@ -1,0 +1,1 @@
+//dynamic movie page will go here
