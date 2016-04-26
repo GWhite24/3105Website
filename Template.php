@@ -14,8 +14,8 @@
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Coffee.php">Movies</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="shop.php">Shop</a></li>
+                    <li><a href="about.php">About</a></li>
                 </ul>
             </nav>
             

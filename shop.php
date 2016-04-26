@@ -1,5 +1,5 @@
 <?php
-$title = "Movies";
+$title = "Shop";
 $content = '
         <img src="Images/banner.jpg" class="imgLeft" />
         <h3>Spoiled Bananas</h3>
