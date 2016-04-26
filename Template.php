@@ -17,8 +17,7 @@
                     <li><a href="movie.php">Movies</a></li>
 					<li><a href="review.php">Reviews</a></li>
 					<li><a href="userprofile.php">User Profile</a></li>
-                    <li><a href="shop.php">Shop</a></li>
-                    <li><a href="about.php">About</a></li>
+                    <li><a href="about.php">About Us</a></li>
                 </ul>
             </nav>
             
