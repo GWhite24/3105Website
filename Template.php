@@ -13,7 +13,10 @@
             <nav id="navigation">
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="Coffee.php">Movies</a></li>
+				    <li><a href="search.php">Search</a></li>
+                    <li><a href="movie.php">Movies</a></li>
+					<li><a href="review.php">Reviews</a></li>
+					<li><a href="userprofile.php">User Profile</a></li>
                     <li><a href="shop.php">Shop</a></li>
                     <li><a href="about.php">About</a></li>
                 </ul>
