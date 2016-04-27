@@ -8,21 +8,9 @@ $content = '
         </p>
 
         <img src="Images/b2.jpg" class="imgRight" />
-        <h3>Purpose</h3>
+        <h3>Search page</h3>
         <p>
-            A web application that will allow users to look and search through a database of
-
-movie, then the user will be able to read reviews on the movie. The readers can read reviews, also view 
-
-trailers for the movie, and see comments about the movie left by other viewers.  The user will also be 
-
-able to create an account where they will be able to log in to make their own comments and reviews. 
-
-Also when logged in they will be able to add the movie to a shopping cart for checkout. This web 
-
-application will be great for movie enthusiasts to find new movies they may want to watch, and for 
-
-movie buffs to help others in the search for great movies
+			This page will have a form with a text entry to search for movie titles and give the results below the form.
          </p>
 
          <img src="Images/b3.jpg" class="imgLeft" />

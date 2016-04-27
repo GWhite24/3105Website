@@ -11,7 +11,10 @@ $content = '
         <h3>About us</h3>
         <p>
             We are the spoiled bananas! We are a group of ITIS 3105 students who have created a website to allow users to create and view movie reviews. 
-			Feel free to join us in making movie reviews and enjoy the website. 
+			Feel free to join us in making movie reviews and enjoy the website.
+
+
+			feel free to change or add more informaiton
          </p>
 
          <img src="Images/b3.jpg" class="imgLeft" />
