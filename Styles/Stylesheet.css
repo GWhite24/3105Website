@@ -21,10 +21,10 @@ body p
 
 #banner
 {
-    background-image: url(../Images/b4.jpg);
+    background-image: url(../Images/mainbanner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    border: 5px solid #dedede;    
+    border: 5px solid #423e16;    
     height: 200px;
 }
 
