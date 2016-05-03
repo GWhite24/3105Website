@@ -26,14 +26,27 @@ function get_movie($movieID) {
 	$statement->closeCursor();
     return $movie;    
 }
-function add_movie($movieID, $trailer, $releaseDate, $director, $title, $description){
+// searches movie based on filter
+function search_movies($filter) {
+    global $db;
+    $query = 'SELECT * FROM movies
+			  WHERE title LIKE %:filter%';
+    $statement = $db->prepare($query);
+	$statement->bindValue(':filter', $filter);
+    $statement->execute();
+	$movie = $statement -> fetchALL();
+	$statement->closeCursor();
+    return $movie;    
+}
+
+function add_movie($trailer, $releaseDate, $director, $title, $description, $poster){
 	global $db;
 	$query = 'INSERT INTO movies
-					(movieID, trailer, releaseDate, director, title, description)
+					(trailer, releaseDate, director, title, description, poster)
 				VALUES
-					(:movieID, :trailer, :releaseDate, :director, :title, :description)';
+					(:trailer, :releaseDate, :director, :title, :description, :poster)';
 	$statement = $db->prepare($query);
-	$statement->bindValue(':movieID', $movieID);
+	$statement->bindValue(':poster', $poster);
 	$statement->bindValue(':trailer', $trailer);
 	$statement->bindValue(':releaseDate', $releaseDate);
 	$statement->bindValue(':director', $director);

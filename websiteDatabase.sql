@@ -22,6 +22,7 @@ CREATE TABLE movies(
 	director 	VARCHAR(50),
 	title		VARCHAR(50) NOT NULL,
 	description VARCHAR(200) NOT NULL,
+	poster    	VARCHAR(50) NOT NULL,
 	PRIMARY KEY(movieID)
 );
 
