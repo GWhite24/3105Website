@@ -16,22 +16,24 @@ CREATE TABLE userInfo(
 );
 
 CREATE TABLE movies(
-	movieID		INT 		NOT NULL 	AUTO_INCREMENT,
+	movieID		INT 			NOT NULL 	AUTO_INCREMENT,
 	trailer		VARCHAR(50),
-	releaseDate	DATETIME,
+	releaseDate	VARCHAR(50),
 	director 	VARCHAR(50),
-	title		VARCHAR(50) NOT NULL,
-	description VARCHAR(200) NOT NULL,
-	poster    	VARCHAR(50) NOT NULL,
+	title		VARCHAR(50) 	NOT NULL,
+	description VARCHAR(200) 	NOT NULL,
+	poster    	VARCHAR(50) 	NOT NULL,
+	rating		INT 			DEFAULT 0,
+	ratingCount INT 			DEFAULT 0,
 	PRIMARY KEY(movieID)
 );
 
 CREATE TABLE reviews(
-	userID INT 		NOT NULL,
-	movieID INT 	NOT NULL,
-	rating	INT 	NOT NULL,
-	review VARCHAR(200) NOT NULL,
-	FOREIGN KEY (userID) REFERENCES userInfo(userID),
+	username 	INT 		NOT NULL,
+	movieID 	INT 		NOT NULL,
+	rating		INT 		NOT NULL,
+	review 		VARCHAR(200) NOT NULL,
+	FOREIGN KEY (userID) REFERENCES userInfo(username),
 	FOREIGN KEY (movieID) REFERENCES movies(movieID),
 	PRIMARY KEY (userID, movieID)
 );

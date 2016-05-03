@@ -1,5 +1,4 @@
 <?php
-$title = "Movies";
 $content = '
         <img src="Images/banner.jpg" class="imgLeft" />
         <h3>Spoiled Bananas</h3>
@@ -32,3 +31,51 @@ movie buffs to help others in the search for great movies
          </p>';
 include 'Template.php';
 ?>
+<!DOCTYPE html>
+<html>
+	<!-- div for handling titile -->
+	<head>
+		<title><?php echo $movie['title'];?></title>
+	</head>
+	
+	<!-- div for handling the display of the movie data  -->
+	<div>
+		<?php echo $movie['title'];?>
+		<?php echo $movie['director'];?>
+		<?php echo $movie['release date'];?>
+		<?php echo $movie['description'];?>
+		<?php echo $movie['poster'];?>
+		<?php echo $movie['trailer'];?>
+	</div>
+	
+	<!-- div for handleing user comments -->
+	<?php foreach ($reviews as $review):?>
+		<div>
+			<?php echo $review['username'];?>
+			<?php echo $review['rating'];?>
+			<br>
+			<?php echo $review['review'];?>
+		</div>
+	<?php endforeach; ?>
+	
+	
+	<!-- div for handling review field -->
+	<div>
+		<form action = "." method = "post" >
+			<input type = "hidden" name = "action" value = "add_review">
+			<input type = "hidden" name = "movieID" value = <?php echo $movie['movieID'];?> >
+			<input type = "hidden" name = "username" value = <?php $_SESSION['user']['username'];?> >
+			<label>Rating</label>
+			<select name = "rating">
+				<?php for($i = 0; $i <= 5; $i++){ ?>
+					<option value = <?php echo $i;?>><?php echo $i;?></option>
+					<?php
+				} ?>
+			</select>
+			<br>
+			<label>What did you think?</label>
+			<textarea name = "review" rows = 6 col = 100></textarea>
+			<input type ="submit" value = "Submit Review">
+		</form>
+	</div>
+</html>

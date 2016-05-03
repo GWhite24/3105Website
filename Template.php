@@ -14,9 +14,9 @@
 			    
                 <ul id="nav">
                     <li><a href=index.php?action=home>Home</a></li>
-				    <li><a href=index.php?action=search>Search</a></li>
-                    <li><a href=index.php?action=movie>Movies</a></li>
-					<li><a href=index.php?action=review>Reviews</a></li>
+				    <li><a href=index.php?action=search>Search Movies</a></li>
+                    <!-- <li><a href=index.php?action=movie>Movies</a></li> -->
+					<!-- <li><a href=index.php?action=review>Reviews</a></li> -->
 					<li><a href=index.php?action=about>About</a></li>
 					<?php
 						if($_SESSION['user']['username'] != null){

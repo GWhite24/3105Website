@@ -11,9 +11,9 @@ function get_movies() {
     $query = 'SELECT * FROM movies';
     $statement = $db->prepare($query);
     $statement->execute();
-	$movie = $statement -> fetchALL();
+	$movies = $statement -> fetchALL();
 	$statement->closeCursor();
-    return $movie;    
+    return $movies;    
 }
 function get_movie($movieID) {
     global $db;
@@ -30,13 +30,13 @@ function get_movie($movieID) {
 function search_movies($filter) {
     global $db;
     $query = 'SELECT * FROM movies
-			  WHERE title LIKE %:filter%';
+			  WHERE title LIKE %' . $filter . '%';
     $statement = $db->prepare($query);
-	$statement->bindValue(':filter', $filter);
+	//$statement->bindValue(':filter', $filter);
     $statement->execute();
-	$movie = $statement -> fetchALL();
+	$movies = $statement -> fetchALL();
 	$statement->closeCursor();
-    return $movie;    
+    return $movies;    
 }
 
 function add_movie($trailer, $releaseDate, $director, $title, $description, $poster){
@@ -78,6 +78,21 @@ function get_reviews($movieID){
 	$statement->closeCursor();
     return $reviews;
 }
+function add_review($username, $movieID, $rating, $review){
+	global $db;
+	$query = 'INSERT INTO userInfo
+					(username, movieID, rating, review)
+				VALUES
+					(:username, :movieID, :rating, :review)';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':username', $username);
+	$statement->bindValue(':movieID', $movieID);
+	$statement->bindValue(':rating', $rating);
+	$statement->bindValue(':review', $review);
+	$statement->execute();
+	$statement->closeCursor();
+}
+
 
 //functions pulling from the user table
 function get_users(){

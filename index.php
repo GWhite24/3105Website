@@ -81,9 +81,14 @@ if ($action == 'home'){
 	//code to delete user from database
 	
 } else if ($action == 'search'){
-	//code to search for certain movies
+	//code to handle search page
 	$filter = filter_input(INPUT_POST, 'filter');
-	$movies = search_movies($filter);
+	$message = $filter;
+	if($filter != null){
+		$movies = search_movies($filter);
+	}else{
+		$movies = get_movies();
+	}
 	include('search.php');
 	
 }else if ($action == 'about'){
@@ -92,11 +97,22 @@ if ($action == 'home'){
 	
 }else if($action == 'movie'){
 	//move to filled out movie page
-	//need the id of the movie
 	$movieID = filter_input(INPUT_POST, 'movieID');
+	$message = $movieID;
 	$movie = get_movie($movieID);
+	$reviews = get_reviews($movieID);
 	include('movie.php');
 	
+}else if($action == 'add_review'){
+	$movieID = filter_input(INPUT_POST, 'movieID');
+	$username = filter_input(INPUT_POST, 'username');
+	$rating = filter_input(INPUT_POST, 'rating');
+	$review = filter_input(INPUT_POST, 'review');
+	add_review($username, $movieID, $rating, $review);
+	
+	$movie = get_movie($movieID);
+	$reviews = get_reviews($movieID);
+	include('movie.php');
 }
 
 //function to handle admin tools page once code is added to remove items
