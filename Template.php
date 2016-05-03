@@ -31,7 +31,7 @@
 						}
 						if ($_SESSION['user']['role'] == 'admin'){
 							?>
-							<li><a href=index.php?action=admin_tools>Admin Tools</a></li>
+							<li><a href=index.php?action=admin_page>Admin Tools</a></li>
 							<?php
 						}
 					?>

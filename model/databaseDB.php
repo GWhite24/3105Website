@@ -6,12 +6,25 @@
 
 
 // functions pulling from the movie table	
-function get_movie() {
+function get_movies() {
     global $db;
     $query = 'SELECT * FROM movies';
     $statement = $db->prepare($query);
     $statement->execute();
-    return $statement;    
+	$movie = $statement -> fetchALL();
+	$statement->closeCursor();
+    return $movie;    
+}
+function get_movie($movieID) {
+    global $db;
+    $query = 'SELECT * FROM movies
+			  WHERE movieID = :movieID';
+    $statement = $db->prepare($query);
+	$statement->bindValue(':movieID', $movieID);
+    $statement->execute();
+	$movie = $statement -> fetch();
+	$statement->closeCursor();
+    return $movie;    
 }
 function add_movie($movieID, $trailer, $releaseDate, $director, $title, $description){
 	global $db;
@@ -34,7 +47,7 @@ function delete_movie($movieID){
 	global $db;
 	$query = 'DELETE FROM movies
 			  WHERE movieID = :movieID';
-	$statement->
+	$statement-> $db->prepare($query);
 	$statement->bindValue(':movieID', $movieID);
     $statement->execute();
     $statement->closeCursor();
@@ -48,10 +61,22 @@ function get_reviews($movieID){
     $statement = $db->prepare($query);
 	$statement->bindValue(':movieID', $movieID);
     $statement->execute();
-    return $statement;
+	$reviews = $statement -> fetchALL();
+	$statement->closeCursor();
+    return $reviews;
 }
 
 //functions pulling from the user table
+function get_users(){
+	
+	global $db;
+    $query = 'SELECT * FROM userInfo';
+    $statement = $db->prepare($query);
+    $statement->execute();
+	$user = $statement -> fetchALL();
+	$statement->closeCursor();
+    return $user;
+}
 function get_user($username, $password){
 	
 	global $db;
@@ -65,14 +90,13 @@ function get_user($username, $password){
 	$statement->closeCursor();
     return $user;
 }
-function add_user($userID, $username, $password, $birthday, $email, $role){
+function add_user($username, $password, $birthday, $email, $role){
 	global $db;
 	$query = 'INSERT INTO userInfo
-					(userID, username, password, birthday, email, role)
+					(username, password, birthday, email, role)
 				VALUES
-					(:userID, :username, :password, :birthday, :email, :role)';
+					(:username, :password, :birthday, :email, :role)';
 	$statement = $db->prepare($query);
-	$statement->bindValue(':userID', $userID);
 	$statement->bindValue(':username', $username);
 	$statement->bindValue(':password', $password);
 	$statement->bindValue(':birthday', $birthday);
