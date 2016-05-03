@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<p><?php echo $_SESSION['user']['username'];?></p>
+<p><?php echo $_SESSION['email']['username']['password']['role'];?></p>
 
 <form action="." method="post">
 	<input type="hidden" name="action" value="validate_user">
