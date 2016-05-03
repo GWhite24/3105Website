@@ -53,6 +53,7 @@ function get_reviews($movieID){
 
 //functions pulling from the user table
 function get_user($username, $password){
+	
 	global $db;
     $query = 'SELECT * FROM userInfo
 			  WHERE username = :username AND password = :password';
@@ -60,7 +61,9 @@ function get_user($username, $password){
 	$statement->bindValue(':username', $username);
 	$statement->bindValue(':password', $password);
     $statement->execute();
-    return $statement;
+	$user = $statement -> fetch();
+	$statement->closeCursor();
+    return $user;
 }
 function add_user($userID, $username, $password, $birthday, $email, $role){
 	global $db;

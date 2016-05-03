@@ -1,1 +1,1 @@
-//some info will go here
+<?php include 'template.php'?>

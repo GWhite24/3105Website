@@ -10,7 +10,7 @@ CREATE TABLE userInfo(
 	username 	VARCHAR(50) NOT NULL,
 	password 	VARCHAR(50) NOT NULL,
 	userID 		INT 		NOT NULL 	AUTO_INCREMENT,
-	birthday 	DATE		NOT NULL,
+	birthday 	DATE,
 	role 		VARCHAR(50) NOT NULL,
 	PRIMARY KEY (userID)
 );
@@ -35,3 +35,11 @@ CREATE TABLE reviews(
 	PRIMARY KEY (userID, movieID)
 );
 
+INSERT INTO userInfo(email, username, password, role) VALUES
+('test@test.com', 'admin', 'pass', 'admin'),
+('test2@test.com', 'user', 'pass', 'user');
+
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON *
+TO spoiled_user@localhost
+IDENTIFIED BY 'password';
