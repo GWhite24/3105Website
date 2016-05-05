@@ -18,6 +18,7 @@
                     <!-- <li><a href=index.php?action=movie>Movies</a></li> -->
 					<!-- <li><a href=index.php?action=review>Reviews</a></li> -->
 					<li><a href=index.php?action=about>About</a></li>
+					<li><a href=userprofile.php?action=userprofile>User Profile</a></li>
 					<?php
 						if($_SESSION['user']['username'] != null){
 							?>
@@ -42,9 +43,9 @@
                 <?php echo $content; ?>
             </div>
             
-            <div id="sidebar">
+            <!--<div id="sidebar">
                 
-            </div>
+            </div>-->
             
             <footer>
                 <p>WhiteOnRice</p>
