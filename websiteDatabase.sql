@@ -30,6 +30,7 @@ CREATE TABLE movies(
 
 CREATE TABLE reviews(
 	userID 		INT		NOT NULL,
+	username 	VARCHAR(50) NOT NULL,
 	movieID 	INT 		NOT NULL,
 	rating		INT 		NOT NULL,
 	review 		VARCHAR(200) NOT NULL,
