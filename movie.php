@@ -39,10 +39,13 @@ include 'Template.php';
 	</head>
 	
 	<!-- div for handling the display of the movie data  -->
+	<br>
+	<?php echo $message;?>
+	<br>
 	<div>
 		<?php echo $movie['title'];?>
 		<?php echo $movie['director'];?>
-		<?php echo $movie['release date'];?>
+		<?php echo $movie['releaseDate'];?>
 		<?php echo $movie['description'];?>
 		<?php echo $movie['poster'];?>
 		<?php echo $movie['trailer'];?>
@@ -64,10 +67,11 @@ include 'Template.php';
 		<form action = "." method = "post" >
 			<input type = "hidden" name = "action" value = "add_review">
 			<input type = "hidden" name = "movieID" value = <?php echo $movie['movieID'];?> >
-			<input type = "hidden" name = "username" value = <?php $_SESSION['user']['username'];?> >
+			<input type = "hidden" name = "username" value = <?php echo $_SESSION['user']['username'];?> >
+			<input type = "hidden" name = "userID" value = <?php echo $_SESSION['user']['userID'];?> >
 			<label>Rating</label>
 			<select name = "rating">
-				<?php for($i = 0; $i <= 5; $i++){ ?>
+				<?php for($i = 5; $i >= 1; $i--){ ?>
 					<option value = <?php echo $i;?>><?php echo $i;?></option>
 					<?php
 				} ?>

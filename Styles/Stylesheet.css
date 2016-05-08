@@ -12,19 +12,19 @@ body p
 
 #wrapper
 {
-    width: 1080px;
+    width: 1280px;
     background-color: white;
     margin: 0 auto;
     padding: 10px;
-    border: 5px solid #dedede;
+    border: 5px solid #423e16;
 }
 
 #banner
 {
-    background-image: url(../Images/b4.jpg);
+    background-image: url(../Images/mainbanner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    border: 5px solid #dedede;    
+    border: 5px solid #423e16;    
     height: 200px;
 }
 
@@ -43,7 +43,7 @@ body p
     height: 400px;
     margin: 20px 10px;
     padding: 10px;
-    border: 2px solid #E3E3E3;
+    border: 2px solid #423e16;
 }
 
 footer
@@ -56,25 +56,33 @@ footer
     text-align: center;
     color: #fff;
     text-shadow: 0.1em 0.1em #333;
-    background-image: url(../Images/b5.jpg);
+    background-color: ffea1a;
 }
 
 #navigation
 {
     height: 60px;
-    border: 3px solid #E3E3E3;
+    border: 3px solid #423e16;
     margin-top: 30px;
     text-shadow: 0.1em 0.1em #333;
-    background-image: url(../Images/b5.jpg);
+    background-color: ffea1a;
+	color: #423e16;
 }
 
 #nav
 {
     list-style: none;
+<<<<<<< HEAD
 	width: 2500px;
     height: 4000px;
 	text-align: center;
 	
+=======
+	width: 1080px;
+    height: 400px;
+	text-align: center;
+	color: #423e16;
+>>>>>>> origin/master
 }
 
 #nav ul
@@ -83,21 +91,24 @@ footer
     padding: 0;
     width: auto;
     display: none;
+	color: #423e16;
 }
 
 #nav li
 {
     font-size: 24px;
+	color: #423e16;
     float: left;
     position: relative;
     width: 180px;
     height: 50px;
+	
 }
 
 #nav a:link, nav a:active, nav a:visited
 {
     display: block;
-    color: #fff;
+    color: #423e16;
     text-decoration: none;
 }
 

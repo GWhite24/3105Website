@@ -77,6 +77,20 @@ if ($action == 'home'){
 	add_user($username, $password, null, $email, $role);
 	include('login.php');
 	
+} else if($action == 'create_user'){
+	//code to add user to database
+	$username = filter_input(INPUT_POST, 'username');
+	$password = filter_input(INPUT_POST, 'password');
+	$email = filter_input(INPUT_POST, 'email');
+	$role = filter_input(INPUT_POST, 'role');
+	if($username != null && $password != null && $email != null &&  $role != null){
+		$message = $username;
+		add_user($username, $password, null, $email, $role);
+		$_SESSION['user'] = get_user($username, $password);
+		include('home.php');
+	}else{
+		include('createAccount.php');
+	}
 } else if($action == 'delete_user'){
 	//code to delete user from database
 	
@@ -105,14 +119,19 @@ if ($action == 'home'){
 	
 }else if($action == 'add_review'){
 	$movieID = filter_input(INPUT_POST, 'movieID');
+	$userID = filter_input(INPUT_POST, 'userID');
 	$username = filter_input(INPUT_POST, 'username');
 	$rating = filter_input(INPUT_POST, 'rating');
 	$review = filter_input(INPUT_POST, 'review');
-	add_review($username, $movieID, $rating, $review);
+	$message = $review;
+	add_review($userID, $username, $movieID, $rating, $review);
 	
 	$movie = get_movie($movieID);
 	$reviews = get_reviews($movieID);
 	include('movie.php');
+}else if ($action == 'new_account'){
+	include('createAccount.php');
+	
 }
 
 //function to handle admin tools page once code is added to remove items

@@ -69,7 +69,7 @@ function delete_movie($movieID){
 //functions pulling from the reviews table
 function get_reviews($movieID){
 	global $db;
-    $query = 'SELECT * FROM movies
+    $query = 'SELECT * FROM reviews
 			  WHERE movieID = :movieID';
     $statement = $db->prepare($query);
 	$statement->bindValue(':movieID', $movieID);
@@ -78,13 +78,14 @@ function get_reviews($movieID){
 	$statement->closeCursor();
     return $reviews;
 }
-function add_review($username, $movieID, $rating, $review){
+function add_review($userID, $username, $movieID, $rating, $review){
 	global $db;
-	$query = 'INSERT INTO userInfo
-					(username, movieID, rating, review)
+	$query = 'INSERT INTO reviews
+					(userID, username, movieID, rating, review)
 				VALUES
-					(:username, :movieID, :rating, :review)';
+					(:userID, :username, :movieID, :rating, :review)';
 	$statement = $db->prepare($query);
+	$statement->bindValue(':userID', $userID);
 	$statement->bindValue(':username', $username);
 	$statement->bindValue(':movieID', $movieID);
 	$statement->bindValue(':rating', $rating);

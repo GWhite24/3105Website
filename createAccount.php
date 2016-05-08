@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
-<p><?php echo $_SESSION['email']['username']['password']['role'];?></p>
 
 <form action="." method="post">
-	<input type="hidden" name="action" value="validate_user">
+	<input type="hidden" name="action" value="create_user">
+	<input type="hidden" name="role" value="user">
 	<label>Email:</label>
-	<input type="text" name="username">
+	<input type="text" name="email" required>
 	<br>
 	<label>Username:</label>
+	<input type="text" name="username" required>
 	<br>
 	<label>Password:</label>
-	<input type="text" name="password">
+	<input type="text" name="password" required>
 	<br>
-	<label>Birthday:</label>
+	<!--<label>Birthday:</label>
 	<input type="text" name="birthday">
-	<br>
-	<input type="submit" value="Login">
+	<br>-->
+	<input type="submit" value="Create Acount">
 	<br>
 	<label>
 </form> 

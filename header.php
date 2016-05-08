@@ -1,52 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Future Value Calculator</title>
-    <link rel="stylesheet" type="text/css" href="main.css"/>
-</head>
-
-<body>
-    <div id="content">
-    <h1>Future Value Calculator</h1>
-    <?php if (!empty($error_message)) { ?>
-        <p class="error"><?php echo $error_message; ?></p>
-    <?php } // end if ?>
-    <form action="display_results.php" method="post">
-        <div id="data">
-			<label>Investment Amount:</label>
-			<select name="investment">
-				<?php
-				for($i = 10000; $i <= 50000; $i += 5000){
-					echo("<option value = $i>$i</option>");
-					
-				}
-				?>
-			</select>
-			<br />
-
-			<label>Yearly Interest Rate:</label>
-			<select name="interest_rate">
-				<?php
-				for($i = 4; $i <= 12; $i += .5){
-					echo("<option value = $i>$i</option>");
-					
-				}
-				?>
-			</select>
-			<br />
-
-			<label>Number of Years:</label>
-			<input type="text" name="years"  value=""  class="textbox"/>
-			<br />
-        
-		</div>
-        
-        <div id="buttons">
-        <label>&nbsp;</label>
-        <input type="submit" value="Calculate"/><br />
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title><?php echo $title; ?></title>
+        <link rel="stylesheet" type="text/css" href="Styles/Stylesheet.css" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="banner">             
+            </div>
+            
+            <nav id="navigation">
+			    
+                <ul id="nav">
+                    <li><a href="index.php?action=home">Home</a></li>
+				    <li><a href=index.php?action=search>Search Movies</a></li>
+                    <!-- <li><a href=index.php?action=movie>Movies</a></li> -->
+					<!-- <li><a href=index.php?action=review>Reviews</a></li> -->
+					<li><a href=index.php?action=about>About</a></li>
+					<!-- <li><a href=userprofile.php?action=userprofile>User Profile</a></li> -->
+					<?php
+						if($_SESSION['user']['username'] != null){
+							?>
+							<li><a href=index.php?action=profile>User Profile</a></li>
+							<li><a href=index.php?action=logout>Logout</a></li>
+							<?php
+						}else{
+							?>
+							<li><a href=index.php?action=login>Login</a></li>
+							<?php
+						}
+						if ($_SESSION['user']['role'] == 'admin'){
+							?>
+							<li><a href=index.php?action=admin_page>Admin Tools</a></li>
+							<?php
+						}
+					?>
+                </ul>
+            </nav>
         </div>
-    </form>
-    </div>
-</body>
+    </body>
 </html>
