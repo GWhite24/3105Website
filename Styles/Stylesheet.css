@@ -32,8 +32,8 @@ body p
 {
     float: left;
     width: 750px;
-    margin: 20px 0 20px 0;
-    padding: 10px;
+    margin: 40px 0 40px 0;
+    padding: 100px;
 }
 
 #sidebar
@@ -71,6 +71,10 @@ footer
 #nav
 {
     list-style: none;
+	width: 2500px;
+    height: 4000px;
+	text-align: center;
+	
 }
 
 #nav ul
