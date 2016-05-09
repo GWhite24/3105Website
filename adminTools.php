@@ -37,7 +37,7 @@
 
 				<!--add movie-->
 
-				<h1>add movies</h1>
+				<h1>Add movies</h1>
 				<form action="." method="post">
 					<input type ="hidden" name="action" value="add_movie">
 					
