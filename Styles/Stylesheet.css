@@ -12,7 +12,7 @@ body p
 
 #wrapper
 {
-    width: 1280px;
+    width: 1400px;
     background-color: white;
     margin: 0 auto;
     padding: 10px;
@@ -25,7 +25,7 @@ body p
     background-repeat: no-repeat;
     background-size: cover;
     border: 5px solid #423e16;    
-    height: 200px;
+    height: 250px;
 }
 
 #content_area
