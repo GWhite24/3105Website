@@ -1,5 +1,6 @@
 <?php
 //creates cookie
+error_reporting(0);
 $lifetime = 60 * 60 * 24;
 session_set_cookie_params($lifetime, '/');
 session_start();
@@ -10,7 +11,7 @@ require('./model/database.php');
 // sets default action
 $action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {
-    $action = $_GET["action"];
+    $action = $_GET['action'];
     if ($action === NULL) {
         $action = 'home';
     }
@@ -112,23 +113,22 @@ if ($action == 'home'){
 }else if($action == 'movie'){
 	//move to filled out movie page
 	$movieID = filter_input(INPUT_POST, 'movieID');
-	$message = $movieID;
-	$movie = get_movie($movieID);
-	$reviews = get_reviews($movieID);
-	include('movie.php');
+	moviepage($movieID);
 	
 }else if($action == 'add_review'){
 	$movieID = filter_input(INPUT_POST, 'movieID');
 	$userID = filter_input(INPUT_POST, 'userID');
 	$username = filter_input(INPUT_POST, 'username');
 	$rating = filter_input(INPUT_POST, 'rating');
+	$ratingCount = filter_input(INPUT_POST, 'ratingCount');
+	$movieRating = filter_input(INPUT_POST, 'movieRating');
 	$review = filter_input(INPUT_POST, 'review');
 	$message = $review;
-	add_review($userID, $username, $movieID, $rating, $review);
 	
-	$movie = get_movie($movieID);
-	$reviews = get_reviews($movieID);
-	include('movie.php');
+	add_review($userID, $username, $movieID, $rating, $review);
+	update_movie($movieID, $rating + $movieRating, $ratingCount + 1);
+	moviepage($movieID);
+
 }else if ($action == 'new_account'){
 	include('createAccount.php');
 	
@@ -137,6 +137,18 @@ if ($action == 'home'){
 //function to handle admin tools page once code is added to remove items
 function adminTools() {
     include('adminTools.php');	
+}
+function moviepage($movieID){
+	$message = $_SESSION['user']['username'];
+	$review = user_review($movieID, $_SESSION['user']['username']);
+	if($movieID == $review['movieID']){
+		$reviewed = true;
+	}else{
+		$reviewed = false;
+	}
+	$reviews = get_reviews($movieID);
+	$movie = get_movie($movieID);
+	include('movie.php');
 }
 
 

@@ -78,6 +78,30 @@ function get_reviews($movieID){
 	$statement->closeCursor();
     return $reviews;
 }
+function update_movie($movieID, $rating, $ratingCount){
+	global $db;
+	$query = 'UPDATE movies
+			SET rating = :rating, ratingCount = :ratingCount
+			WHERE movieID = :movieID';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':movieID', $movieID);
+	$statement->bindValue(':rating', $rating);
+	$statement->bindValue(':ratingCount', $ratingCount);
+	$statement->execute();
+	$statement->closeCursor();
+}
+function user_review($movieID, $username){
+	global $db;
+    $query = 'SELECT * FROM reviews
+			  WHERE movieID = :movieID AND username = :username';
+    $statement = $db->prepare($query);
+	$statement->bindValue(':movieID', $movieID);
+	$statement->bindValue(':username', $username);
+    $statement->execute();
+	$review = $statement -> fetch();
+	$statement->closeCursor();
+    return $review;
+}
 function add_review($userID, $username, $movieID, $rating, $review){
 	global $db;
 	$query = 'INSERT INTO reviews

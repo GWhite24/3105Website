@@ -72,17 +72,13 @@ footer
 #nav
 {
     list-style: none;
-<<<<<<< HEAD
 	width: 2500px;
     height: 4000px;
 	text-align: center;
-	
-=======
 	width: 1080px;
     height: 400px;
 	text-align: center;
 	color: #423e16;
->>>>>>> origin/master
 }
 
 #nav ul
@@ -116,7 +112,11 @@ footer
 {
     color: lightblue;
 }
-
+#content
+{
+	width: 50%;
+    margin: 0 auto; 
+}
 .imgLeft
 {
     float: left;
@@ -156,4 +156,8 @@ footer
     padding: 0px 10px 10px 10px;
     height: 150px;
     width: 150px;
+}
+
+textarea {
+    resize: none;
 }
